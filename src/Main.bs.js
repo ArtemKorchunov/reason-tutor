@@ -6,4 +6,10 @@ var Math$MyNewProject = require("./Math.bs.js");
 
 Pervasives.print_int(Math$MyNewProject.add(1, 2));
 
+console.log("");
+
+Pervasives.print_float(Math$MyNewProject.pi);
+
+console.log("");
+
 /*  Not a pure module */
