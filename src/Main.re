@@ -1,0 +1,1 @@
+print_int(Math.add(1, 2));
