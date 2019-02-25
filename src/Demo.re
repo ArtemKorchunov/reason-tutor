@@ -101,3 +101,61 @@ type item =
   | Todo(string, bool);
 
 let myItem = Todo("redesign website", false);
+
+let message =
+  switch myItem {
+  | Note(text) => "Here is your note" ++ text;
+  | Todo("redesign website", false) => "Matche value"; 
+  | Todo(text, chekced) => "Here is your todo: " ++ text ++ string_of_bool(chekced);
+  };
+
+/* Eliminate illegal states */
+
+type request = 
+  | Loading
+  | Error
+  | Success(string)
+
+let state = Loading;
+
+let ui =
+  switch (state) {
+  | Loading => "Loading..."
+  | Error => "Something went wrong"
+  | Success("") => "Your name is missing"
+  | Success(name) => "Your name is " ++ name
+  };
+
+
+type userResponse = {
+  id: int,
+  name: string,
+  age: int,
+};
+
+type requestObject =
+  | Loading
+  | Error
+  | Success(userResponse);
+
+let response = Success({ id: 5, name: "Artem", age: 45 });
+
+let ui =
+  switch (response){
+  | Loading => "Request is loading now!"
+  | Error => "Something went wrong!"
+  | Success(userResponse) => "Your name is: " ++ userResponse.name
+  };
+
+/* Optional values */
+
+let meaningfulValue = None;
+
+let meaningfulValue = Some("42");
+
+
+let meaningfulResult =
+  switch meaningfulValue {
+  | None => "This is none value"
+  | Some(value) => "Current value: " ++ value
+  };

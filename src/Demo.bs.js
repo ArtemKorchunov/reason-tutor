@@ -2,6 +2,7 @@
 'use strict';
 
 var Block = require("bs-platform/lib/js/block.js");
+var Pervasives = require("bs-platform/lib/js/pervasives.js");
 var Caml_oo_curry = require("bs-platform/lib/js/caml_oo_curry.js");
 var CamlinternalOO = require("bs-platform/lib/js/camlinternalOO.js");
 
@@ -58,7 +59,33 @@ var anna = CamlinternalOO.create_object_opt(0, $$class);
 
 Caml_oo_curry.js1(-453768622, 1, anna);
 
-var message = "Keep learning";
+var myItem = /* Todo */Block.__(1, [
+    "redesign website",
+    false
+  ]);
+
+var message;
+
+if (myItem.tag) {
+  var text = "redesign website";
+  message = text === "redesign website" ? "Matche value" : "Here is your todo: " + (text + Pervasives.string_of_bool(false));
+} else {
+  message = "Here is your noteredesign website";
+}
+
+var response = /* Success */[/* record */[
+    /* id */5,
+    /* name */"Artem",
+    /* age */45
+  ]];
+
+var ui = typeof response === "number" ? (
+    response !== 0 ? "Something went wrong!" : "Request is loading now!"
+  ) : "Your name is: Artem";
+
+var meaningfulValue = "42";
+
+var meaningfulResult = meaningfulValue !== undefined ? "Current value: " + meaningfulValue : "This is none value";
 
 var some_value = /* () */0;
 
@@ -85,10 +112,7 @@ var olderTim = /* record */[
 
 var isReasonGreat = /* Maybe */2;
 
-var myItem = /* Todo */Block.__(1, [
-    "redesign website",
-    false
-  ]);
+var state = /* Loading */0;
 
 exports.some_value = some_value;
 exports.lamp = lamp;
@@ -104,6 +128,11 @@ exports.evenOlderTim = evenOlderTim;
 exports.lion = lion;
 exports.anna = anna;
 exports.isReasonGreat = isReasonGreat;
-exports.message = message;
 exports.myItem = myItem;
+exports.message = message;
+exports.state = state;
+exports.response = response;
+exports.ui = ui;
+exports.meaningfulValue = meaningfulValue;
+exports.meaningfulResult = meaningfulResult;
 /*  Not a pure module */
